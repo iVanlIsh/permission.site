@@ -373,6 +373,12 @@ window.addEventListener("load", function() {
       var keygen = document.createElement("keygen");
       document.getElementById("keygen-container").appendChild(keygen);
     },
+    "pna": function() {
+      navigator.pna.requestDevice({filters: [{}]}).then(
+        displayOutcome("pna", "success"),
+        displayOutcome("pna", "error")
+      );
+    },
     "persistent-storage": function() {
       // https://storage.spec.whatwg.org
       navigator.storage.persist().then(
